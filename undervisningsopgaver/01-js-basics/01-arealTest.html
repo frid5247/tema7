@@ -13,8 +13,19 @@
         let længde = 3;
         let bredde = 5;
         let areal = længde * bredde;
+        let resultat;
 
-        let resultat = `Længden er ${længde} meter og bredden er ${bredde} meter. Arealet er ${areal} kvadratmeter`;
+        if (areal < 100) {
+            resultat = "arealet er for lille";
+        }
+
+        if (areal = < 100 && areal < 200) {
+            resultat = "arealet er ok";
+        }
+
+        if (areal >= 200) {
+            resultat = "arealet er for stort";
+        }
 
         console.log(resultat)
 
