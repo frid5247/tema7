@@ -55,7 +55,10 @@
 
             function stop() {
                 fyrkant.removeEventListener("click", flyt);
+                fyrkant.style.transition = "1.5s";
                 fyrkant.style.backgroundColor = "red";
+                cirkel.style.transition = "1.5s";
+                fyrkant.style.transform = "scale(0)";
             }
 
         }
