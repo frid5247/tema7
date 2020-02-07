@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <section class="dyreliste">
+    </section>
+
+    <template>
+        <article>
+            <h3></h3>
+            <img src="">
+            <p>Type:</p>
+            <p>Levested:</p>
+        </article>
+    </template>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+        let dyr = [];
+
+        function start() {
+            hentData();
+        }
+
+
+        async function hentData() {
+            const response = await fetch("alleDyr.json");
+            console.log(response);
+            dyr = await response.json();
+            console.log(dyr);
+            visDyr();
+        }
+
+
+        function visDyr() {
+            const dyreliste = document.querySelector(".dyreliste");
+            const template = document.querySelector("template");
+            dyr.forEach(dyr => {
+                let klon = template.cloneNode(true).content;
+                klon.querySelector("h3").textContent = dyr.navn;
+                klon.querySelector("p").textContent += dyr.type;
+                klon.querySelector("p+p").textContent += dyr.levested;
+                klon.querySelector("img").src = dyr.billede;
+                dyreliste.appendChild(klon);
+            })
+
+
+        }
+    </script>
+</body></html>
